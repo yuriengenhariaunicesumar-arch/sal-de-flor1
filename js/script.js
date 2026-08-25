@@ -19,14 +19,14 @@ setInterval(() => {
 }, 6000);
 
 // =========================
-// VALIDAÇÃO DO FORMULÁRIO
+// FORMULÁRIO PARA WHATSAPP
 // =========================
 
 const form = document.getElementById("contactForm");
 
-if (form){
+if (form) {
 
-    form.addEventListener("submit", function(e){
+    form.addEventListener("submit", function(e) {
 
         e.preventDefault();
 
@@ -34,20 +34,45 @@ if (form){
         const email = document.getElementById("email").value.trim();
         const telefone = document.getElementById("telefone").value.trim();
         const evento = document.getElementById("evento").value;
+        const data = document.getElementById("data").value;
+        const convidados = document.getElementById("convidados").value.trim();
+        const local = document.getElementById("local").value.trim();
         const mensagem = document.getElementById("mensagem").value.trim();
 
-        if(
+        if (
             nome === "" ||
             email === "" ||
             telefone === "" ||
             evento === "" ||
+            data === "" ||
+            convidados === "" ||
+            local === "" ||
             mensagem === ""
-        ){
+        ) {
             alert("Por favor, preencha todos os campos.");
             return;
         }
 
-        alert("Solicitação enviada com sucesso!");
+        const numeroWhatsapp = "5548996512181";
+
+        const texto = `
+Olá! Gostaria de solicitar um orçamento para a Sal de Flor - Cozinha Criativa.
+
+Nome: ${nome}
+E-mail: ${email}
+Telefone: ${telefone}
+Tipo de evento: ${evento}
+Data do evento: ${data}
+Número de convidados: ${convidados}
+Local/Cidade: ${local}
+
+Mensagem:
+${mensagem}
+        `;
+
+        const linkWhatsapp = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(texto)}`;
+
+        window.open(linkWhatsapp, "_blank");
 
         form.reset();
 

@@ -404,6 +404,15 @@ nav a:hover::after{
     margin-bottom:20px;
 
 }
+.service-card .btn{
+
+    margin-top:20px;
+
+    padding:12px 24px;
+
+    font-size:15px;
+
+}
 /* =========================
    CTA
 ========================= */
