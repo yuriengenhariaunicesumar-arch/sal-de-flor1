@@ -60,6 +60,8 @@ header{
 .logo img{
     height: 170px;
     width: auto;
+    transform: scale(1.60);
+    transform-origin: center;
 }
 
 nav ul{
