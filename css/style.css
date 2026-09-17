@@ -711,25 +711,20 @@ footer p{
 .contact input,
 .contact select,
 .contact textarea{
-
     width:100%;
-
     padding:16px;
-
     border:1px solid #ddd;
-
     border-radius:10px;
-
     font-size:16px;
-
     font-family:'Poppins', sans-serif;
-
     outline:none;
-
     transition:.3s;
-
 }
 
+/* Telefone internacional */
+.iti{
+    width:100%;
+}
 .contact input:focus,
 .contact select:focus,
 .contact textarea:focus{
