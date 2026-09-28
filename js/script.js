@@ -1,3 +1,27 @@
+
+
+// =========================
+// VOLTAR AO TOPO AO RECARREGAR A HOME
+// =========================
+
+const paginaInicial =
+    window.location.pathname === "/" ||
+    window.location.pathname.endsWith("/index.html");
+
+if (paginaInicial) {
+    if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+    }
+
+    window.addEventListener("load", function () {
+        window.scrollTo(0, 0);
+    });
+
+    window.addEventListener("pageshow", function () {
+        window.scrollTo(0, 0);
+    });
+}
+
 // =========================
 // SLIDER DA HOME
 // =========================
