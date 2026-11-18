@@ -123,7 +123,15 @@ ${mensagem}`;
         const linkWhatsapp =
             `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(texto)}`;
 
-        window.open(linkWhatsapp, "_blank");
+        
+if (typeof window.gtag === "function") {
+    window.gtag("event", "whatsapp_click", {
+        origem: "formulario_contato"
+    });
+}
+
+window.open(linkWhatsapp, "_blank");
+
 
         form.reset();
 
@@ -132,3 +140,16 @@ ${mensagem}`;
         }
     });
 }
+
+
+document.addEventListener("click", (event) => {
+    const link = event.target.closest(
+        'a[href*="wa.me/"], a[href*="api.whatsapp.com"], a[href*="whatsapp/"]'
+    );
+
+    if (!link || typeof window.gtag !== "function") return;
+
+    window.gtag("event", "whatsapp_click", {
+        origem: "botao_whatsapp"
+    });
+});
